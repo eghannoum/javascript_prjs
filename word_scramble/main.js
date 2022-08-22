@@ -41,7 +41,7 @@ function shuffle(string) {
 function equal() {
     console.log(orginal_word)
     if (word.value === orginal_word) {
-        console.log('eqaul')
+        console.log('Equal')
     }
 }
 
