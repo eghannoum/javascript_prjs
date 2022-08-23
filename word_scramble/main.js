@@ -3,8 +3,8 @@ let hint = document.getElementById("word-hint")
 let timer = document.getElementById("timer")
 let check_word = document.getElementById("check-word")
 let word = document.getElementById("word")
+let refresh_word = document.getElementById("refresh-word")
 let orginal_word = ''
-
 
 
 fetch('https://random-words-api.vercel.app/word').then(response => {
@@ -16,6 +16,21 @@ fetch('https://random-words-api.vercel.app/word').then(response => {
     })
 });
 
+
+function refreshWord(){
+
+    fetch('https://random-words-api.vercel.app/word').then(response => {
+        return response.json().then(data => {
+            orginal_word = data[0].word.toLowerCase(orginal_word)
+            random_word.innerHTML = shuffle(orginal_word)
+            hint.innerHTML = 'Hint: ' + data[0].definition
+    
+        })
+    });
+}
+
+
+refresh_word.addEventListener("click", refreshWord)
 
 let timeleft = 1;
 let downloadTimer = setInterval(function () {
