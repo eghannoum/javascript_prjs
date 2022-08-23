@@ -22,8 +22,14 @@ let downloadTimer = setInterval(function () {
     if (timeleft <= 0) {
         clearInterval(downloadTimer);
     }
-    timer.innerHTML = `Time left: ${60 - timeleft}`;
+    
+    timer.innerHTML = `Time left: ${10 - timeleft}s`;
     timeleft += 1;
+    if(10 - timeleft === -1){
+        timeleft = 0;
+        document.getElementById("word").disabled = true;
+    }
+
 }, 1000);
 
 
